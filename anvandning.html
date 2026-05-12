@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Användning — AC Group Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">AC Group Platform</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Översikt</a>
+      <a href="koncernen.html" class="nav-link">Koncernen</a>
+      <a href="anvandning.html" class="nav-link active">Användning</a>
+      <a href="affarsvarde.html" class="nav-link">Affärsvärde</a>
+      <a href="teknik.html" class="nav-link">Teknik</a>
+      <a href="roadmap.html" class="nav-link">Roadmap</a>
+    </div>
+  </div>
+</nav>
+
+<section class="subhero">
+  <div class="container">
+    <span class="badge">Del 2 av 5</span>
+    <h1>Konkret användning per yrkesroll</h1>
+    <p class="subhero-lead">
+      Det här är inte ett verktyg som bara vissa kommer använda. Plattformen
+      är designad för att stötta hela koncernens dagliga arbete — designers,
+      utvecklare, SEO-specialister, paid media-managers, account managers
+      och projektledare.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="prose">
+
+      <h2>Exempel: SEO-granskning med automatisk implementation</h2>
+      <p>
+        Detta är ett av de starkaste exemplen på vad plattformen möjliggör.
+        En typ av arbete som idag tar dagar kan göras på under en timme,
+        med högre kvalitet eftersom AI kan korsanalysera mer data parallellt
+        än en människa kan.
+      </p>
+
+      <div class="workflow">
+        <h4>Så fungerar SEO-granskningen idag</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">01</span>
+          <p>SEO-specialist loggar in på Google Search Console, hämtar prestanda-data. Cirka 30 minuter.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">02</span>
+          <p>Loggar in på Google Analytics 4, analyserar trafik och beteende. Cirka 30 minuter.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">03</span>
+          <p>Loggar in på SE Ranking, kollar ranking-positioner och konkurrenter. Cirka 45 minuter.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">04</span>
+          <p>Loggar in på Google Ads, identifierar vilka söktermer som driver konverteringar. Cirka 30 minuter.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">05</span>
+          <p>Går igenom sajten sida för sida manuellt, noterar problem med meta titles, descriptions, headers, alt-texter. Cirka 2 timmar.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">06</span>
+          <p>Skriver rapport i Word eller Notion. Cirka 2 timmar.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">07</span>
+          <p>Skickar rapport till klient, väntar på godkännande. 1–3 dagar.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">08</span>
+          <p>Loggar in på WordPress, implementerar godkända ändringar manuellt. Cirka 3–4 timmar.</p>
+        </div>
+      </div>
+
+      <p><strong>Total tid:</strong> ungefär 10–12 timmars arbete, plus 1–3 dagars väntetid.</p>
+
+      <div class="workflow">
+        <h4>Samma arbete med plattformen</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">01</span>
+          <p>SEO-specialist beskriver för Claude: "Gör en komplett SEO-granskning av hildebrand.se. Inkludera GSC senaste 90 dagarna, GA4-beteende, SE Ranking-positioner, Google Ads konverteringsdata, och en audit av alla meta-tags. Föreslå åtgärder med prioritering."</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">02</span>
+          <p>Claude använder plattformen för att parallellt hämta data från alla fem källor och korsanalysera dem. Detta tar mellan 2 och 5 minuter.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">03</span>
+          <p>Claude returnerar en strukturerad rapport med 15–25 åtgärder, prioriterade efter förväntad effekt på organisk trafik.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">04</span>
+          <p>SEO-specialist granskar förslagen och säger till Claude vilka som ska implementeras direkt. För tekniska fixar (meta titles, descriptions, alt-texter) skapas approval-requests i plattformen.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">05</span>
+          <p>Specialisten godkänner i batch i sin dashboard. Claude implementerar ändringarna direkt på WordPress via REST API och verifierar varje ändring.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">06</span>
+          <p>Rapport och fix-logg skickas till klient via plattformens delningsportal. Klart.</p>
+        </div>
+      </div>
+
+      <p><strong>Total tid:</strong> ungefär 45–60 minuter. Ingen väntetid på klient eftersom de får hela rapporten med faktiskt genomförda fixar.</p>
+
+      <div class="callout">
+        <p>
+          Att gå från 10–12 timmar till 45 minuter är inte bara en kvantitativ
+          förändring. Det förändrar vad som är ekonomiskt försvarbart att
+          erbjuda klienter — vi kan göra månatliga SEO-granskningar där vi
+          tidigare bara erbjudit kvartalsvisa, eller granska tio sajter där
+          vi tidigare bara hade tid för en.
+        </p>
+      </div>
+
+      <h2>Exempel: Black Friday-kampanj över alla klienter</h2>
+      <p>
+        Ett annat exempel på var plattformens styrka kommer till uttryck —
+        när man behöver göra likartade ändringar över många klienter
+        samtidigt.
+      </p>
+      <p>
+        Tre veckor innan Black Friday vill Cyntora rulla ut en kampanjsetup
+        för alla fem klienter samtidigt. Med plattformen kan det se ut så här:
+      </p>
+
+      <div class="workflow">
+        <h4>Black Friday-kampanjsetup</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">01</span>
+          <p>Account manager till Claude: "Förbered Black Friday-kampanjer för alla fem klienter. Skapa rabattkoder BF2026 (30% off) i Shopify, lägg till BF-banners på WordPress-sajterna, skapa annonsutkast i Google Ads och Meta baserat på respektive klients topp-säljande produkter, och förbered email-kampanjer i Klaviyo. Allt ska vara pending för godkännande."</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">02</span>
+          <p>Claude utför alla operationer parallellt för alla fem klienter. Cirka 5–10 minuter.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">03</span>
+          <p>25 pending approvals (5 åtgärder × 5 klienter) i dashboarden. Account manager granskar i batch.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">04</span>
+          <p>Allt godkänt och rullas ut samtidigt. Total tid: ungefär 1–2 timmar istället för flera dagars manuellt arbete.</p>
+        </div>
+      </div>
+
+      <h2>Exempel: Designprocess för Bishop Media</h2>
+      <p>
+        Bishops designers arbetar idag mycket med iteration mellan Figma och
+        klient. Det är där plattformen kan ha stor effekt — inte genom att
+        ersätta designkompetensen, utan genom att hantera det repetitiva
+        arbetet kring designprocessen.
+      </p>
+
+      <div class="workflow">
+        <h4>Designflöde med plattformen</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">01</span>
+          <p>Designer beskriver för Claude: "Skapa nya hero-sektioner för bryggeri-kundens startsida. De vill ha tre alternativ — ett rustikt, ett modernt minimalistiskt, och ett som blandar de två." Bilder och stilreferenser läggs in i konversationen.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">02</span>
+          <p>Claude använder Figmas API för att skapa tre nya design-varianter i Bishops Figma-fil. Designern granskar i Figma, justerar och förfinar.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">03</span>
+          <p>När designern är nöjd: Claude genererar en delningslänk till klientportalen. Klienten loggar in via magic link och ser de tre alternativen i sin del av plattformen.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">04</span>
+          <p>Klienten kan kommentera på varje variant, eller godkänna en. Kommentarerna går tillbaka till designern.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">05</span>
+          <p>När klienten godkänt: designer säger "implementera den godkända designen på klientens WordPress-sajt." Claude översätter Figma-designen till WordPress (Avada-tema) via REST API.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">06</span>
+          <p>Designer granskar slutimplementationen, gör eventuella justeringar. Klart.</p>
+        </div>
+      </div>
+
+      <p>
+        Värdet ligger inte i att Claude "designar" — det ligger i att <em>tiden mellan
+        designidé och implementation kortas drastiskt</em>, och att designern frigörs
+        från det repetitiva.
+      </p>
+
+      <h2>Vad olika roller får ut av plattformen</h2>
+
+      <h3>För SEO-specialister</h3>
+      <ul>
+        <li>Cross-platform analys på sekunder istället för timmar</li>
+        <li>Bulk-audits över flera klienter samtidigt</li>
+        <li>Automatisk implementation av tekniska SEO-fixar efter godkännande</li>
+        <li>Content gap-analys mellan klient och konkurrenter</li>
+        <li>Realtidsvarningar när nyckeltermer tappar positioner</li>
+      </ul>
+
+      <h3>För Paid Media-managers</h3>
+      <ul>
+        <li>Cross-platform ROAS-jämförelser mellan Google Ads, Meta, TikTok</li>
+        <li>Bulk-pausning av underpresterande kampanjer över alla klienter</li>
+        <li>Korrelationsanalys mellan ad-spend och faktisk försäljning i Shopify</li>
+        <li>Automatisk bid-justering på keywords med hög konverteringsfrekvens</li>
+        <li>A/B-testförslag baserat på tidigare högpresterande annonser</li>
+      </ul>
+
+      <h3>För designers (Bishop)</h3>
+      <ul>
+        <li>Designgenerering direkt i Figma via API</li>
+        <li>Klientgodkännande-flöde inbyggt i plattformen</li>
+        <li>Automatisk implementation från Figma till WordPress (Avada)</li>
+        <li>Bulk-uppdateringar av layout-element över flera sajter (t.ex. säsongsbanners)</li>
+        <li>Designkonsekvens-granskning över klientens hela sajt</li>
+      </ul>
+
+      <h3>För utvecklare (Angry Creative)</h3>
+      <ul>
+        <li>Automatisk diagnostik av WordPress/WooCommerce-installationer</li>
+        <li>Bulk-uppdatering av produktbeskrivningar över flera språk</li>
+        <li>Tekniska underhållsrapporter genererade automatiskt</li>
+        <li>Code review-assistans med kontext från klientens faktiska data</li>
+        <li>Integrationsdokumentation skapad från faktisk konfiguration</li>
+      </ul>
+
+      <h3>För account managers</h3>
+      <ul>
+        <li>Auto-genererade veckorapporter med insights, inte bara siffror</li>
+        <li>Förberedelse för klientmöten på under 10 minuter</li>
+        <li>Proaktiv kundvård: varningar om problem hos klienter</li>
+        <li>Onboarding av nya klienter på minuter istället för dagar</li>
+        <li>Centraliserad portal för all klientkommunikation kring projekt</li>
+      </ul>
+
+      <h3>För koncernledning</h3>
+      <ul>
+        <li>Cross-client portfolio-vy över alla bolag och kunder</li>
+        <li>Resurs-allokeringsdata: var spenderas tiden, var genereras värdet</li>
+        <li>Strategiska insikter baserat på aggregerad data från hela gruppen</li>
+        <li>Konkurrensanalys mot benchmarks i SE Ranking</li>
+        <li>Full kontroll över data — GDPR-vänligt eftersom allt är inom koncernen</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-block">
+      <h2>Vidare läsning</h2>
+      <p>
+        Nu när vi sett konkreta exempel — låt oss titta på vad det kostar
+        att bygga och vad det öppnar för affärsmöjligheter.
+      </p>
+      <div class="cta-grid">
+        <a href="affarsvarde.html" class="cta-card">
+          <h4>→ Affärsvärde</h4>
+          <p>Investering, ROI, och nya intäktsströmmar.</p>
+        </a>
+        <a href="teknik.html" class="cta-card">
+          <h4>Teknik</h4>
+          <p>Hur plattformen är byggd, säkerhet och integrationer.</p>
+        </a>
+        <a href="koncernen.html" class="cta-card">
+          <h4>← Tillbaka till Koncernen</h4>
+          <p>Återgå till bakgrundsdelen.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>AC Group Platform · Internt strategidokument · Cyntora AB</p>
+    <p class="footer-meta">Dokumentet är en arbetsversion för intern diskussion inom Angry Creative Group. Maj 2026.</p>
+  </div>
+</footer>
+
+</body>
+</html>

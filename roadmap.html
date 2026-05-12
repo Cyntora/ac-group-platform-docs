@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap — AC Group Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">AC Group Platform</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Översikt</a>
+      <a href="koncernen.html" class="nav-link">Koncernen</a>
+      <a href="anvandning.html" class="nav-link">Användning</a>
+      <a href="affarsvarde.html" class="nav-link">Affärsvärde</a>
+      <a href="teknik.html" class="nav-link">Teknik</a>
+      <a href="roadmap.html" class="nav-link active">Roadmap</a>
+    </div>
+  </div>
+</nav>
+
+<section class="subhero">
+  <div class="container">
+    <span class="badge">Del 5 av 5</span>
+    <h1>Från idé till färdigt verktyg</h1>
+    <p class="subhero-lead">
+      En realistisk plan över faser, leveranser och beslutspunkter. Vi
+      bygger inte allt på en gång — målet är fungerande mjukvara vid
+      slutet av varje fas, inte ett perfekt monolit som aldrig levereras.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="prose">
+
+      <h2>Övergripande angreppssätt</h2>
+      <p>
+        Plattformen byggs iterativt över ungefär sex månader. Vi prioriterar
+        att ha något användbart efter varje 4-veckorscykel istället för att
+        vänta på en stor leverans i slutet.
+      </p>
+      <p>
+        Cyntora är initial drivkraft eftersom vi redan har en tydlig bild
+        av behovet. Bishop, Angry Creative och Synotio kopplas in i senare
+        faser när grunden är på plats.
+      </p>
+
+      <h2>Fas 1: Grunden (vecka 1–4)</h2>
+
+      <p>
+        <strong>Mål:</strong> Auth fungerar, databas på plats, grundläggande
+        dashboard.
+      </p>
+
+      <div class="workflow">
+        <h4>Leveranser i fas 1</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Next.js-projekt initialiserat med TypeScript, Tailwind, shadcn/ui</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Supabase-projekt med komplett databasschema och Row-Level Security</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Magic link-autentisering via email</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Dashboard med organisationsväxlare</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Cyntora och 5 klient-organisationer seedade i databasen</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Domän och hosting hos Synotio konfigurerade</p>
+        </div>
+      </div>
+
+      <p>
+        <strong>Beslutspunkt efter fas 1:</strong> Allt fungerar tekniskt — ska vi
+        gå vidare? Detta är en relativt liten investering så här långt.
+      </p>
+
+      <h2>Fas 2: Connector-ramverk (vecka 5–8)</h2>
+
+      <p>
+        <strong>Mål:</strong> Strukturen för att lägga till nya integrationer
+        är på plats.
+      </p>
+
+      <div class="workflow">
+        <h4>Leveranser i fas 2</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Connector-modul-mönstret definierat i kod</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Connector-katalog UI på dashboarden</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Connections-sida per organisation</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Krypterad credential-lagring fungerar</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Audit log för anslutningar och tokenanvändning</p>
+        </div>
+      </div>
+
+      <h2>Fas 3: Första integration — Shopify (vecka 9–12)</h2>
+
+      <p>
+        <strong>Mål:</strong> Ersätt Windsor för Shopify-data.
+      </p>
+
+      <div class="workflow">
+        <h4>Leveranser i fas 3</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Shopify-connector med komplett setup-wizard</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>5 Shopify-tools för läsning av data (orders, products, customers, revenue, inventory)</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>De 5 befintliga Shopify-butikerna migrerade från Windsor till plattformen</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Test-anslutning fungerar i UI</p>
+        </div>
+      </div>
+
+      <p>
+        <strong>Beslutspunkt efter fas 3:</strong> Vi har nu ersatt Windsor för
+        en av dess viktigaste funktioner. Fungerar modellen? Är vi nöjda
+        med kvaliteten? Innan vi går vidare med fler integrationer.
+      </p>
+
+      <h2>Fas 4: MCP-server (vecka 13–16)</h2>
+
+      <p>
+        <strong>Mål:</strong> Claude pratar med plattformen.
+      </p>
+
+      <div class="workflow">
+        <h4>Leveranser i fas 4</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>MCP-server endpoint med token-baserad autentisering</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Token-hantering UI: skapa, märk, återkalla</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Rate limiting för att skydda mot missbruk</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Tool-routing: token → användare → organisationer → tillgängliga verktyg</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>End-to-end-test: skapa token, klistra in i Claude, ställ fråga, få svar</p>
+        </div>
+      </div>
+
+      <p>
+        <strong>Milstolpe:</strong> Vid slutet av fas 4 kan Cyntora-anställda
+        använda plattformen direkt från Claude för Shopify-data. Detta är
+        första gången plattformen är reellt användbar.
+      </p>
+
+      <h2>Fas 5: Power BI och Figma (vecka 17–20)</h2>
+
+      <p>
+        <strong>Mål:</strong> Lägg till OAuth-baserade connectors och visa
+        att ramverket fungerar för flera typer av integrationer.
+      </p>
+
+      <div class="workflow">
+        <h4>Leveranser i fas 5</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Azure AD-app registrerad för Power BI multi-tenant OAuth</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Power BI-connector med 4 tools (workspaces, datasets, DAX-query, reports)</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Figma-app registrerad för OAuth</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Figma-connector med läsning av filer och kommentarer</p>
+        </div>
+      </div>
+
+      <h2>Fas 6: WordPress med skrivrättigheter (vecka 21–24)</h2>
+
+      <p>
+        <strong>Mål:</strong> Första skrivoperationer fungerar — det här är där
+        plattformen blir riktigt kraftfull.
+      </p>
+
+      <div class="workflow">
+        <h4>Leveranser i fas 6</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>WordPress-connector (self-hosted) med setup-wizard för Application Passwords</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Läsningsverktyg: list posts, get post, list pages, get SEO metadata</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Skrivverktyg med approval-flag: update post, publish post, update page</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Approval-UI: granska och godkänn pending skrivoperationer</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Audit log för varje skrivoperation</p>
+        </div>
+      </div>
+
+      <p>
+        <strong>Milstolpe:</strong> Efter fas 6 har vi första verkliga
+        skrivflödet på plats. Det här är en konkret skillnad mot Windsor
+        som bara läser data.
+      </p>
+
+      <h2>Fas 7: Klient self-service (vecka 25–28)</h2>
+
+      <p>
+        <strong>Mål:</strong> Första icke-Cyntora-användaren loggar in och
+        använder plattformen.
+      </p>
+
+      <div class="workflow">
+        <h4>Leveranser i fas 7</h4>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Inbjudningsflöde via email för nya klientanvändare</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Onboarding-wizard för nya användare</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Klient-facing dashboard (begränsad vy)</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Hjälpdokumentation för klienter</p>
+        </div>
+        <div class="workflow-step">
+          <span class="workflow-step-num">→</span>
+          <p>Pilot med en vald klient (rekommendation: Hildebrand)</p>
+        </div>
+      </div>
+
+      <h2>Fas 8 och framåt: Skala katalogen</h2>
+      <p>
+        När grunden är solid blir varje ny connector betydligt snabbare att
+        lägga till — typiskt 2–5 dagars utveckling per ny integration. Här
+        är prioritetsordningen för fortsatt utbyggnad:
+      </p>
+
+      <ol>
+        <li>WooCommerce (Angry Creative-stack — 7 butiker idag)</li>
+        <li>Google Analytics 4 (ersätter lokala MCP-installationer)</li>
+        <li>Google Search Console (ersätter lokala MCP-installationer)</li>
+        <li>SE Ranking (redan integrerad via befintlig MCP)</li>
+        <li>Google Ads (kräver verification — påbörja processen tidigt)</li>
+        <li>Meta Ads (kräver review — påbörja processen tidigt)</li>
+        <li>TikTok Ads (kräver review)</li>
+        <li>Klaviyo (email marketing)</li>
+        <li>Synotio-monitoring (intern API)</li>
+        <li>Fortnox / Visma (för klienter med bokföring)</li>
+        <li>HubSpot (för B2B-klienter)</li>
+        <li>Övriga efter klientbehov</li>
+      </ol>
+
+      <h2>Vad som behöver beslutas innan vi börjar</h2>
+
+      <h3>Beslut 1: Vem bygger?</h3>
+      <p>
+        Detta är det viktigaste beslutet. Tre realistiska alternativ
+        (se Affärsvärde-sidan för detaljer):
+      </p>
+      <ul>
+        <li>Anställa intern utvecklare</li>
+        <li>Anlita frilanskonsult eller specialiserad byrå</li>
+        <li>AI-assisterad solo-utveckling om någon i koncernen har relevant bakgrund</li>
+      </ul>
+
+      <h3>Beslut 2: Domän och varumärke</h3>
+      <p>
+        Hur ska plattformen heta och marknadsföras? Några möjligheter:
+      </p>
+      <ul>
+        <li>Internt verktyg utan starkt eget varumärke (intern användning först)</li>
+        <li>Eget varumärke från start, positioneras för framtida produktifiering</li>
+        <li>Cyntora-varumärke initialt, sen omdöp om vi går produkt-vägen</li>
+      </ul>
+
+      <h3>Beslut 3: Pilot-klient</h3>
+      <p>
+        Vilken klient ska vara vår första externa pilot? Faktorer att tänka på:
+      </p>
+      <ul>
+        <li>Teknisk mognad och vilja att testa nytt</li>
+        <li>Bredd i system de använder (för att testa fler integrationer)</li>
+        <li>Stark relation — vi behöver kunna vara öppna när saker går fel</li>
+      </ul>
+      <p>
+        Hildebrand är ett naturligt val baserat på dessa kriterier.
+      </p>
+
+      <h3>Beslut 4: Approval-policy</h3>
+      <p>
+        För skrivoperationer — hur strikt ska godkännandeflödet vara?
+      </p>
+      <ul>
+        <li><strong>Per åtgärd:</strong> Varje individuell skrivning kräver godkännande (säkrast, mest friktion)</li>
+        <li><strong>Per anslutning:</strong> Klienten ger blanket-godkännande när de kopplar (smidigast)</li>
+        <li><strong>Hybrid:</strong> Vissa typer kräver godkännande, andra inte (rimligaste)</li>
+      </ul>
+
+      <h2>Spec för utvecklare finns redan</h2>
+      <p>
+        Som komplement till detta dokument finns ett tekniskt
+        spec-dokument framtaget — <code>CYNTORA_PLATFORM_SPEC.md</code> — som
+        kan användas som direktiv till Claude Code eller annan utvecklare.
+        Specet är 600+ rader och täcker arkitektur, datamodell, säkerhet,
+        connector-mönster och fas-för-fas-leveranser.
+      </p>
+
+      <h2>Nästa konkreta steg</h2>
+      <ol>
+        <li>Presentation av detta dokument internt — alla fyra bolag</li>
+        <li>Diskutera beslutspunkterna ovan med ledning</li>
+        <li>Validering med 2–3 nyckelklienter (vill de ha detta?)</li>
+        <li>Beslut om utvecklingsmodell och budget</li>
+        <li>Starta fas 1</li>
+      </ol>
+
+      <p>
+        Det är inte ett "allt eller inget"-beslut. Vi kan stanna upp efter
+        fas 3 om något inte fungerar som väntat. Vi kan acceptera fas 1–4
+        och vänta med fas 5+ till senare. Den iterativa modellen är medvetet
+        designad för att begränsa risken.
+      </p>
+
+      <div class="callout">
+        <p>
+          Plattformen är inte tänkt som en revolution som händer över en
+          natt. Det är en strategisk omställning som tar tid att etablera.
+          Men varje fas levererar konkret värde, och målet är att vi inom
+          ett år har en plattform som på allvar förändrar hur koncernen
+          arbetar.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-block">
+      <h2>Tillbaka till början</h2>
+      <p>
+        Du har läst igenom alla fem delar. Här kan du återgå till
+        översikten eller hoppa direkt till en specifik del.
+      </p>
+      <div class="cta-grid">
+        <a href="index.html" class="cta-card">
+          <h4>← Översikt</h4>
+          <p>Återgå till första sidan.</p>
+        </a>
+        <a href="anvandning.html" class="cta-card">
+          <h4>Användning</h4>
+          <p>Konkreta scenarier per yrkesroll.</p>
+        </a>
+        <a href="affarsvarde.html" class="cta-card">
+          <h4>Affärsvärde</h4>
+          <p>Investering, ROI och nya intäktsmöjligheter.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>AC Group Platform · Internt strategidokument · Cyntora AB</p>
+    <p class="footer-meta">Dokumentet är en arbetsversion för intern diskussion inom Angry Creative Group. Maj 2026.</p>
+  </div>
+</footer>
+
+</body>
+</html>

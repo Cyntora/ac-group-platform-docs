@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affärsvärde — AC Group Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">AC Group Platform</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Översikt</a>
+      <a href="koncernen.html" class="nav-link">Koncernen</a>
+      <a href="anvandning.html" class="nav-link">Användning</a>
+      <a href="affarsvarde.html" class="nav-link active">Affärsvärde</a>
+      <a href="teknik.html" class="nav-link">Teknik</a>
+      <a href="roadmap.html" class="nav-link">Roadmap</a>
+    </div>
+  </div>
+</nav>
+
+<section class="subhero">
+  <div class="container">
+    <span class="badge">Del 3 av 5</span>
+    <h1>Vad det kostar, vad det sparar, vad det öppnar</h1>
+    <p class="subhero-lead">
+      En ärlig genomgång av investeringen, återbetalningstiden, och de
+      nya affärsmöjligheter plattformen skapar för koncernen.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="prose">
+
+      <h2>Vad det kostar att bygga</h2>
+      <p>
+        Den största variabeln är vem som bygger plattformen. Det finns tre
+        realistiska alternativ:
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Approach</th>
+              <th>Tid till MVP</th>
+              <th>Engångskostnad</th>
+              <th>Kommentar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Intern utvecklare</strong></td>
+              <td>5–7 månader</td>
+              <td>Lön + viss extern konsultation</td>
+              <td>Bästa långsiktigt — kompetens stannar i huset. Kräver senior utvecklare med erfarenhet av Next.js, TypeScript och MCP.</td>
+            </tr>
+            <tr>
+              <td><strong>Frilanskonsult</strong></td>
+              <td>3–5 månader</td>
+              <td>200 000 – 400 000 kr</td>
+              <td>Snabbare leverans. Kräver tydlig spec och löpande styrning. Underhåll efter MVP måste planeras separat.</td>
+            </tr>
+            <tr>
+              <td><strong>Utvecklingsbyrå</strong></td>
+              <td>4–6 månader</td>
+              <td>400 000 – 800 000 kr</td>
+              <td>Lägre risk men dyrast. Bra om vi vill ha en komplett produkt direkt med projektledning inbyggd.</td>
+            </tr>
+            <tr>
+              <td><strong>AI-assisterad solo</strong></td>
+              <td>4–6 månader</td>
+              <td>Bara intern tid</td>
+              <td>Möjligt med Claude Code som utvecklingsassistent. Kräver dock person med utvecklarbakgrund som driver det.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Vad det kostar att driva</h2>
+      <p>
+        Detta är den enklaste delen av kalkylen. Plattformen är byggd för att
+        ha låg driftskostnad även när vi skalar upp.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Fas</th>
+              <th>Antal klienter</th>
+              <th>Månadskostnad infrastruktur</th>
+              <th>Vad som behöver uppgraderas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Startfas</td>
+              <td>5–10</td>
+              <td>500 – 1 500 kr</td>
+              <td>Inget — hostat hos Synotio, gratis tier på alla externa tjänster räcker</td>
+            </tr>
+            <tr>
+              <td>Skalfas</td>
+              <td>10–50</td>
+              <td>1 500 – 4 000 kr</td>
+              <td>Supabase Pro, eventuell uppgradering av Synotio-resurser</td>
+            </tr>
+            <tr>
+              <td>Etablerad</td>
+              <td>50–200</td>
+              <td>4 000 – 15 000 kr</td>
+              <td>Mer hosting, monitoring, eventuellt dedikerad databas-instans</td>
+            </tr>
+            <tr>
+              <td>Stor</td>
+              <td>200+</td>
+              <td>15 000 – 50 000 kr</td>
+              <td>Enterprise-arkitektur, redundans, eventuellt SOC 2-certifiering</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Per klient hamnar infrastrukturkostnaden i alla skalsteg på mellan
+        100 och 500 kr per månad — betydligt lägre än vad vi betalar Windsor
+        idag.
+      </p>
+
+      <h2>Vad det sparar</h2>
+
+      <h3>Direkta besparingar</h3>
+      <ul>
+        <li><strong>Windsor.ai-prenumeration</strong> — uppskattningsvis 1 000–3 000 kr/månad beroende på tier. Plattformen ersätter Windsor för Cyntoras dataaccess-behov.</li>
+        <li><strong>Lokala MCP-installationer</strong> — GA4 och GSC kräver idag manuell installation per klient. Plattformen gör allt centralt.</li>
+        <li><strong>Manuell rapporteringstid</strong> — när auto-rapporter ersätter manuella veckorapporter, frigörs ungefär 4–8 timmar per klient och månad.</li>
+      </ul>
+
+      <h3>Indirekta besparingar</h3>
+      <p>
+        Det stora värdet ligger inte i sparade prenumerationer utan i sparad
+        arbetstid. Här är några realistiska uppskattningar baserat på
+        Cyntoras nuvarande arbetsflöden:
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Arbetsuppgift</th>
+              <th>Tid idag</th>
+              <th>Tid med plattformen</th>
+              <th>Besparing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SEO-audit per klient</td>
+              <td>10–12 timmar</td>
+              <td>45–60 minuter</td>
+              <td>~85%</td>
+            </tr>
+            <tr>
+              <td>Månadsrapport per klient</td>
+              <td>3–4 timmar</td>
+              <td>30 minuter</td>
+              <td>~85%</td>
+            </tr>
+            <tr>
+              <td>Black Friday-setup (5 klienter)</td>
+              <td>3–4 dagar</td>
+              <td>2–3 timmar</td>
+              <td>~90%</td>
+            </tr>
+            <tr>
+              <td>Klient-onboarding</td>
+              <td>2–3 dagar</td>
+              <td>30 minuter</td>
+              <td>~95%</td>
+            </tr>
+            <tr>
+              <td>Designvariation Bishop</td>
+              <td>4–8 timmar</td>
+              <td>1 timme</td>
+              <td>~80%</td>
+            </tr>
+            <tr>
+              <td>WordPress-implementation av design</td>
+              <td>4–6 timmar</td>
+              <td>30–60 minuter</td>
+              <td>~85%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Sammanlagt: en typisk Cyntora-anställd som idag hanterar 2–3 klienter
+        på heltid kan med plattformen rimligen hantera 5–8 klienter med samma
+        kvalitet. Det är en av de starkaste effekterna i hela kalkylen.
+      </p>
+
+      <h2>Vad det öppnar i nya intäkter</h2>
+      <p>
+        Det här är där plattformen blir intressant ur ett tillväxtperspektiv.
+        När vi kan utföra arbete dramatiskt snabbare kan vi paketera om
+        våra tjänster.
+      </p>
+
+      <h3>Befintliga klienter — prisuppgradering</h3>
+      <p>
+        En klient som idag betalar för en månatlig SEO-granskning kan
+        i många fall motiveras till ett premium-paket som ger:
+      </p>
+      <ul>
+        <li>Veckovisa istället för månatliga granskningar</li>
+        <li>Real-time monitoring med proaktiva varningar</li>
+        <li>Egen AI-assistent-åtkomst via klientportalen</li>
+        <li>Automatiska implementationer (efter godkännande)</li>
+      </ul>
+      <p>
+        Realistisk prisökning per klient: 30–50% på berörd tjänst.
+      </p>
+
+      <h3>Nya tjänstepaket</h3>
+      <p>
+        Plattformen möjliggör tjänster vi inte kan erbjuda idag:
+      </p>
+      <ul>
+        <li><strong>AI-driven SEO-paket</strong> — fast månadspris per webbplats, inkluderar veckovis granskning och löpande optimering</li>
+        <li><strong>AI Monitoring-paket</strong> — kontinuerlig övervakning av digital prestanda med proaktiva varningar</li>
+        <li><strong>AI Strategy-paket</strong> — veckomöten där Claude förberett djupgående analyser och åtgärdsförslag</li>
+        <li><strong>Bishop Design-on-demand</strong> — abonnemangstjänst där klienter får designjusteringar via AI med snabb leveranstid</li>
+        <li><strong>Synotio AI Driftsövervakning</strong> — premium-hosting med inbyggd AI-driven monitoring</li>
+      </ul>
+
+      <h3>Nya marknader vi kan ta oss in på</h3>
+      <p>
+        Med plattformen som grund kan koncernen mer effektivt arbeta med
+        klienttyper som tidigare varit svåra att hantera lönsamt:
+      </p>
+      <ul>
+        <li><strong>B2B-tjänsteföretag</strong> — har ofta HubSpot, Salesforce eller liknande som vi tidigare inte integrerat mot</li>
+        <li><strong>SaaS-företag</strong> — kombinationen av Stripe-data, produktanalys och content marketing blir hanterbar</li>
+        <li><strong>Internationella klienter</strong> — plattformen är inte språkbunden, kan användas av svenska, engelska, tyska klienter</li>
+        <li><strong>Mindre e-handlare</strong> — kan få samma kvalitet på arbete som enterprise-klienter, eftersom marginalkostnaden per klient är låg</li>
+      </ul>
+
+      <h2>Återbetalningstid</h2>
+      <p>
+        En realistisk kalkyl baserat på Cyntoras nuvarande situation och
+        antaganden om effektivisering:
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>Antagande:</strong> 3 anställda hos Cyntora frigör vardera 25%
+          av sin tid genom plattformen. Vid en intäkt på 800 kr per debiterbar
+          timme och 1 400 debiterbara timmar per år och anställd, motsvarar
+          det 840 000 kr per år i frigjord kapacitet som kan användas till
+          nya klienter eller mer arbete åt befintliga.
+        </p>
+      </div>
+
+      <p>
+        Med en utvecklingskostnad på 200 000–400 000 kr återbetalas
+        investeringen på 3–6 månader bara genom direkta tidsbesparingar.
+      </p>
+
+      <p>
+        Detta räknar inte med:
+      </p>
+      <ul>
+        <li>Sparade kostnader på Windsor-prenumeration</li>
+        <li>Nya intäkter från premium-paket</li>
+        <li>Effektivisering inom Bishop, Angry Creative och Synotio</li>
+        <li>Möjlighet att paketera plattformen som en produkt på sikt</li>
+      </ul>
+
+      <h2>Risker att vara medveten om</h2>
+
+      <h3>Teknisk risk</h3>
+      <p>
+        Bygget kräver kompetens kring MCP-protokollet som är relativt
+        nytt. Det finns färre erfarna utvecklare än för t.ex. WordPress.
+        Mitigering: börja med en MVP som är fokuserad och inte försöker
+        bygga allt på en gång. Validera modellen med Cyntora internt
+        innan vi rullar ut till klienter.
+      </p>
+
+      <h3>Operationell risk</h3>
+      <p>
+        Klienter och anställda måste lära sig ett nytt verktyg. Det finns
+        en initialkostnad i form av utbildning och förändringsledning.
+        Mitigering: pilot med en intern användare och en pilot-klient i
+        2–3 månader innan bredare rollout.
+      </p>
+
+      <h3>Säkerhetsrisk</h3>
+      <p>
+        När vi hostar klientdata och har skrivrättigheter mot deras system,
+        ökar konsekvensen av en eventuell säkerhetsincident. Mitigering:
+        Synotios infrastruktur är redan byggd för enterprise-säkerhet, vi
+        bygger approval-flöden för alla skrivoperationer, och vi har full
+        audit log för spårbarhet.
+      </p>
+
+      <h3>Konkurrentrisk</h3>
+      <p>
+        AI utvecklas snabbt och Windsor (eller någon ny aktör) kan börja
+        erbjuda liknande funktionalitet. Mitigering: vår fördel ligger
+        inte främst i tekniken utan i specialiseringen för digital
+        marknadsföring och webbutveckling, samt det faktum att vi har
+        domänkunskap som tar år att bygga upp.
+      </p>
+
+      <h2>Lång sikt: plattformen som produkt</h2>
+      <p>
+        Det här är en upside som inte ska räknas in i grundkalkylen, men
+        som är värt att nämna: om plattformen visar sig fungera väl internt,
+        finns det en realistisk möjlighet att paketera den som en SaaS-produkt
+        för andra byråer.
+      </p>
+      <p>
+        Det är samma kodbas, men med en go-to-market-strategi riktad mot
+        digital marknadsföringsbyråer och webbutvecklingsbolag i Norden.
+        Andra byråer skulle förmodligen betala mellan 3 000 och 15 000 kr
+        per månad för att slippa bygga något liknande själva.
+      </p>
+      <p>
+        50 betalande byråer skulle innebära en årlig återkommande intäkt
+        på 1,8–9 miljoner kronor. Detta är inte huvudaffären, men det är
+        en realistisk sidoaffär byggd på samma investering.
+      </p>
+
+      <h2>Sammanfattning av ekonomin</h2>
+      <ul>
+        <li><strong>Engångskostnad:</strong> 200 000 – 800 000 kr beroende på leveransmodell</li>
+        <li><strong>Månadskostnad år 1:</strong> 500 – 1 500 kr i infrastruktur</li>
+        <li><strong>Direkt besparing år 1:</strong> ~50 000–100 000 kr (Windsor + lokala MCP-installationer)</li>
+        <li><strong>Indirekt besparing år 1:</strong> 500 000 – 1 000 000 kr i frigjord debiterbar tid</li>
+        <li><strong>Potentiell ny intäkt år 1:</strong> 200 000 – 500 000 kr genom premium-paket och fler klienter</li>
+        <li><strong>Återbetalningstid:</strong> 3–9 månader beroende på leveransmodell</li>
+        <li><strong>ROI år 2:</strong> Mångdubbel</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-block">
+      <h2>Vidare läsning</h2>
+      <p>
+        Affärsvärdet är tydligt. Nu till hur plattformen faktiskt byggs.
+      </p>
+      <div class="cta-grid">
+        <a href="teknik.html" class="cta-card">
+          <h4>→ Teknik</h4>
+          <p>Arkitektur, integrationer och säkerhetsprinciper.</p>
+        </a>
+        <a href="roadmap.html" class="cta-card">
+          <h4>Roadmap</h4>
+          <p>Faser, leveranser och beslutspunkter.</p>
+        </a>
+        <a href="anvandning.html" class="cta-card">
+          <h4>← Tillbaka till Användning</h4>
+          <p>Återgå till konkreta scenarier.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>AC Group Platform · Internt strategidokument · Cyntora AB</p>
+    <p class="footer-meta">Dokumentet är en arbetsversion för intern diskussion inom Angry Creative Group. Maj 2026.</p>
+  </div>
+</footer>
+
+</body>
+</html>
