@@ -28,11 +28,11 @@
 <section class="subhero">
   <div class="container">
     <span class="badge">Del 4 av 5</span>
-    <h1>Hur plattformen är byggd</h1>
+    <h1>Hur plattformen är tänkt att byggas</h1>
     <p class="subhero-lead">
-      En översikt över arkitektur, säkerhetsprinciper och integrationer.
-      Skriven på ett sätt som är tillgängligt för icke-tekniska läsare men
-      med tillräcklig detalj för utvecklare.
+      En översikt över föreslagen arkitektur, säkerhetsprinciper och
+      integrationer. Skriven på ett sätt som är tillgängligt för
+      icke-tekniska läsare men med tillräcklig detalj för utvecklare.
     </p>
   </div>
 </section>
@@ -43,63 +43,65 @@
 
       <h2>Grundprincipen: MCP-protokollet</h2>
       <p>
-        Plattformen bygger på Anthropics Model Context Protocol (MCP), en
-        öppen standard för hur AI-modeller kommunicerar med externa system.
-        MCP släpptes 2024 och har sedan dess anammats av många stora aktörer
-        som Microsoft, Google och Stripe.
+        Plattformen är tänkt att bygga på Anthropics Model Context Protocol
+        (MCP), en öppen standard för hur AI-modeller kommunicerar med externa
+        system. MCP släpptes 2024 och har sedan dess anammats av många stora
+        aktörer som Microsoft, Google och Stripe.
       </p>
       <p>
         Tekniken är inte unik för Claude. Vilken AI-modell som helst som
-        stöder MCP kan koppla in sig till vår plattform. Det innebär att vi
-        bygger infrastrukturen oberoende av AI-leverantör, vilket är viktigt
-        för framtidssäkring.
+        stöder MCP skulle kunna koppla in sig mot plattformen. Det innebär
+        att vi skulle bygga infrastrukturen oberoende av AI-leverantör,
+        vilket är viktigt för framtidssäkring.
       </p>
 
       <h2>Arkitekturöversikt</h2>
       <p>
-        Plattformen består av fyra huvudkomponenter som tillsammans utgör
-        det centrala nervsystemet.
+        Plattformen är tänkt att bestå av fyra huvudkomponenter som
+        tillsammans utgör det centrala nervsystemet.
       </p>
 
       <h3>1. Webbapplikation (app.nexflow.se eller liknande)</h3>
       <p>
-        Här loggar användare in: både anställda inom koncernen och klienter.
-        Det är portalen för att hantera anslutningar, godkänna åtgärder och
-        se aktivitet. Byggd med Next.js (React) och Tailwind CSS.
+        Här ska användare logga in: både anställda inom koncernen och
+        klienter. Det blir portalen för att hantera anslutningar, godkänna
+        åtgärder och se aktivitet. Föreslagen stack: Next.js (React) och
+        Tailwind CSS.
       </p>
 
       <h3>2. MCP-server (mcp.nexflow.se eller liknande)</h3>
       <p>
-        Detta är endpoint som Claude och andra AI-modeller pratar med. När
-        en användare ställer en fråga som kräver klientdata anropar AI:n en
-        av plattformens verktyg via MCP-servern. Servern verifierar
+        Detta blir endpoint som Claude och andra AI-modeller pratar med. När
+        en användare ställer en fråga som kräver klientdata ska AI:n anropa
+        ett av plattformens verktyg via MCP-servern. Servern verifierar
         behörighet, hämtar data från rätt källsystem, och returnerar svaret.
       </p>
 
       <h3>3. Databas (PostgreSQL hos Synotio)</h3>
       <p>
-        Här lagras användare, organisationer, anslutningar, API-tokens och
-        audit log. Databasen körs på Synotios egen infrastruktur. Vi hostar
-        den själva inom koncernen istället för att förlita oss på en extern
-        leverantör. Centralt koncept är Row-Level Security, en databasnivå-
-        säkerhet som garanterar att en användare bara ser data tillhörande
-        organisationer hen har behörighet till.
+        Här ska användare, organisationer, anslutningar, API-tokens och
+        audit log lagras. Databasen är tänkt att köras på Synotios egen
+        infrastruktur. Vi hostar den själva inom koncernen istället för att
+        förlita oss på en extern leverantör. Centralt koncept är Row-Level
+        Security, en databasnivå-säkerhet som garanterar att en användare
+        bara ser data tillhörande organisationer hen har behörighet till.
       </p>
 
       <h3>4. Connector-moduler</h3>
       <p>
-        Detta är det som gör plattformen utvidgningsbar. Varje extern
-        integration (Shopify, WordPress, Power BI, Figma) är en modulär
-        komponent i koden. När en utvecklare lägger till en ny connector blir
-        den automatiskt tillgänglig för alla användare.
+        Detta blir det som gör plattformen utvidgningsbar. Varje extern
+        integration (Shopify, WordPress, Power BI, Figma) byggs som en
+        modulär komponent i koden. När en utvecklare lägger till en ny
+        connector blir den automatiskt tillgänglig för alla användare.
       </p>
 
       <h2>Två centrala begrepp: Connectors och Connections</h2>
       <p>
-        Detta är den viktigaste distinktionen i plattformens arkitektur.
+        Detta är den viktigaste distinktionen i plattformens föreslagna
+        arkitektur.
       </p>
       <p>
-        En <strong>Connector</strong> är en kapabilitet vi har byggt,
+        En <strong>Connector</strong> är en kapabilitet vi bygger,
         exempelvis "Shopify" eller "WordPress". Det är en kodmodul som
         beskriver hur man kopplar mot ett externt system och vilka
         tools/actions som finns.
@@ -113,33 +115,33 @@
       <p>
         Den praktiska effekten: när vi bygger en ny connector (säg
         "Klaviyo") blir den automatiskt tillgänglig i katalogen för
-        <em>alla</em> våra klienter. Varje klient kan sedan skapa sin egen
-        connection genom att koppla sitt eget Klaviyo-konto.
+        <em>alla</em> våra klienter. Varje klient skulle sedan kunna skapa
+        sin egen connection genom att koppla sitt eget Klaviyo-konto.
       </p>
       <p>
-        Eftersom varje connection är en isolerad instans med egna
+        Eftersom varje connection skulle bli en isolerad instans med egna
         credentials och egen organisation finns det i praktiken
-        <strong>inga gränser för hur många connections plattformen kan
-        hantera</strong>. Så länge connector-koden är välbyggd och databasen
-        är korrekt indexerad skalar antalet connections linjärt. En klient
-        kan ha hundra connections, eller tusen, utan att arkitekturen
-        ändras.
+        <strong>inga gränser för hur många connections plattformen ska
+        kunna hantera</strong>. Så länge connector-koden är välbyggd och
+        databasen är korrekt indexerad skalar antalet connections linjärt.
+        En klient skulle kunna ha hundra connections, eller tusen, utan att
+        arkitekturen behöver ändras.
       </p>
       <p>
-        Detta löser också en konkret begränsning i de färdiga MCP-connectorer
-        som finns idag. Claudes officiella Shopify-koppling tar in en butik
-        åt gången. Gmail-connectorn hanterar ett konto. GA4 likadant. För en
-        byrå som arbetar med flera klienter samtidigt är det en hård
-        begränsning. I vår modell kan en och samma inloggade användare ha
-        flera Shopify-, Gmail-, GA4- eller Google Ads-connections aktiva
-        parallellt, och Claude kan resonera över dem i samma fråga utan att
-        användaren behöver växla konto.
+        Detta är tänkt att lösa en konkret begränsning i de färdiga
+        MCP-connectorer som finns idag. Claudes officiella Shopify-koppling
+        tar in en butik åt gången. Gmail-connectorn hanterar ett konto. GA4
+        likadant. För en byrå som arbetar med flera klienter samtidigt är
+        det en hård begränsning. I den föreslagna modellen skulle en och
+        samma inloggade användare ha flera Shopify-, Gmail-, GA4- eller
+        Google Ads-connections aktiva parallellt, och Claude resonera över
+        dem i samma fråga utan att användaren behöver växla konto.
       </p>
 
       <h2>Tre olika kopplingsmönster</h2>
       <p>
-        Olika tjänster kräver olika sätt att koppla in sig. Plattformen
-        stödjer alla tre vanliga mönster.
+        Olika tjänster kräver olika sätt att koppla in sig. Plattformen ska
+        stödja alla tre vanliga mönster.
       </p>
 
       <h3>Mönster A: OAuth 2.0</h3>
@@ -182,8 +184,9 @@
 
       <h2>Initiala integrationer</h2>
       <p>
-        Plattformen byggs i faser. Här är de connectors vi prioriterar i
-        första rundan, ordnade efter affärsvärde och teknisk komplexitet.
+        Plattformen är tänkt att byggas i faser. Här är de connectors vi
+        skulle prioritera i första rundan, ordnade efter affärsvärde och
+        teknisk komplexitet.
       </p>
 
       <div class="table-wrapper">
@@ -299,23 +302,23 @@
 
       <h2>Säkerhetsprinciper</h2>
       <p>
-        När plattformen får skrivrättigheter mot klienters system blir
-        säkerhet kritiskt. Vi följer fyra grundläggande principer.
+        När plattformen ska få skrivrättigheter mot klienters system blir
+        säkerhet kritiskt. Fyra grundläggande principer föreslås.
       </p>
 
       <h3>Multi-tenancy från dag ett</h3>
       <p>
-        Varje rad i databasen är taggad med vilken organisation den
+        Varje rad i databasen ska taggas med vilken organisation den
         tillhör. Row-Level Security i PostgreSQL säkerställer att en
         användare aldrig kan se data från en annan organisation, även om
-        koden skulle ha en bug. Detta är databasnivå-säkerhet, inte
+        koden skulle ha en bug. Det blir databasnivå-säkerhet, inte
         applikationsnivå.
       </p>
 
       <h3>Krypterad lagring av credentials</h3>
       <p>
-        Alla OAuth-tokens och API-nycklar krypteras innan de skrivs till
-        databasen. Krypteringsnyckeln lagras separat i Synotios egen
+        Alla OAuth-tokens och API-nycklar ska krypteras innan de skrivs
+        till databasen. Krypteringsnyckeln lagras separat i Synotios egen
         secrets-hantering, isolerad från själva databasen. Om databasen
         skulle läcka är credentials oanvändbara utan krypteringsnyckeln.
       </p>
@@ -323,7 +326,7 @@
       <h3>Approval-flow för skrivoperationer</h3>
       <p>
         Skrivoperationer (att uppdatera en WordPress-sida, skapa en
-        rabattkod i Shopify, pausa en Google Ads-kampanj) markeras med
+        rabattkod i Shopify, pausa en Google Ads-kampanj) ska markeras med
         "requires_approval: true" i koden. När Claude vill utföra en sådan
         operation skapas en pending approval i databasen. En människa måste
         godkänna via dashboarden innan operationen exekveras.
@@ -336,27 +339,27 @@
 
       <h3>Full audit log</h3>
       <p>
-        Varje åtgärd loggas: vem skapade vilken anslutning, vilket verktyg
-        anropades med vilka parametrar, vem godkände vilken skrivoperation,
-        när användes vilket token. Det ger spårbarhet både för säkerhet,
-        debugging och compliance.
+        Varje åtgärd ska loggas: vem skapade vilken anslutning, vilket
+        verktyg anropades med vilka parametrar, vem godkände vilken
+        skrivoperation, när användes vilket token. Det ger spårbarhet både
+        för säkerhet, debugging och compliance.
       </p>
 
       <h2>Hosting</h2>
       <p>
-        Plattformen hostas hos Synotio. Detta är ett strategiskt val av
-        flera anledningar:
+        Plattformen är tänkt att hostas hos Synotio. Det är ett strategiskt
+        val av flera anledningar:
       </p>
       <ul>
         <li><strong>All data stannar i Sverige.</strong> GDPR-compliant och starkt försäljningsargument mot svenska klienter.</li>
-        <li><strong>Inom koncernen.</strong> Vi äger hela leveranskedjan.</li>
+        <li><strong>Inom koncernen.</strong> Vi skulle äga hela leveranskedjan.</li>
         <li><strong>Stark säkerhetsprofil.</strong> Synotios datacenter har enterprise-säkerhet inbyggt.</li>
-        <li><strong>Synergi.</strong> Synotio får ett strategiskt projekt som motiverar fortsatt teknikutveckling.</li>
+        <li><strong>Synergi.</strong> Synotio skulle få ett strategiskt projekt som motiverar fortsatt teknikutveckling.</li>
       </ul>
       <p>
-        Tekniskt är plattformen byggd för att vara portabel. Om vi i
-        framtiden vill flytta till annan hosting, eller köra hybrid, är det
-        möjligt utan stora omskrivningar.
+        Tekniskt ska plattformen byggas för att vara portabel. Om vi i
+        framtiden vill flytta till annan hosting, eller köra hybrid, ska
+        det vara möjligt utan stora omskrivningar.
       </p>
 
       <h2>Tekstack</h2>
@@ -377,25 +380,26 @@
 
       <h2>Skalbarhet</h2>
       <p>
-        Plattformen är designad för att skala linjärt med antal klienter.
-        En klient motsvarar ett antal connections plus en användare eller
-        två. Det finns inga arkitekturmässiga begränsningar som hindrar oss
-        från att gå från 5 klienter till 500.
+        Plattformen är tänkt att skala linjärt med antal klienter. En
+        klient motsvarar ett antal connections plus en användare eller två.
+        Det finns inga arkitekturmässiga begränsningar i designen som
+        hindrar oss från att gå från 5 klienter till 500.
       </p>
       <p>
-        Eftersom vi hostar hela stacken hos Synotio (databas, MCP-server och
-        webbapplikation) har vi också full kontroll över skalningen. Vi är
-        inte begränsade av en extern leverantörs prisplaner eller kvoter.
-        Om saker är byggda rätt, med välindexerad databas, isolerade
-        connections per organisation och korrekt connection pooling, är
-        antalet connections plattformen kan hantera
-        <strong>i praktiken oändligt</strong>.
+        Eftersom hela stacken ska hostas hos Synotio (databas, MCP-server
+        och webbapplikation) skulle vi också ha full kontroll över
+        skalningen. Vi blir inte begränsade av en extern leverantörs
+        prisplaner eller kvoter. Om saker byggs rätt, med välindexerad
+        databas, isolerade connections per organisation och korrekt
+        connection pooling, skulle antalet connections plattformen kan
+        hantera vara <strong>i praktiken oändligt</strong>.
       </p>
       <p>
-        Det som behöver justeras vid skalning är primärt infrastrukturen:
-        mer CPU/RAM på Synotios servrar, fler MCP-server-instanser, möjligen
-        dedikerade noder för enterprise-klienter. Eftersom vi äger hela
-        leveranskedjan kan Synotio dimensionera precis efter behov.
+        Det som skulle behöva justeras vid skalning är primärt
+        infrastrukturen: mer CPU/RAM på Synotios servrar, fler
+        MCP-server-instanser, möjligen dedikerade noder för
+        enterprise-klienter. Eftersom vi skulle äga hela leveranskedjan kan
+        Synotio dimensionera precis efter behov.
       </p>
 
     </div>
