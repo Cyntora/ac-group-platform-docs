@@ -61,14 +61,14 @@
         det centrala nervsystemet.
       </p>
 
-      <h3>1. Webbapplikation (app.cyntora.se eller liknande)</h3>
+      <h3>1. Webbapplikation (app.nexflow.se eller liknande)</h3>
       <p>
-        Här loggar användare in — både Cyntora-anställda och klienter.
+        Här loggar användare in — både Nexflow-anställda och klienter.
         Detta är portalen för att hantera anslutningar, godkänna åtgärder
         och se aktivitet. Byggd med Next.js (React) och Tailwind CSS.
       </p>
 
-      <h3>2. MCP-server (mcp.cyntora.se eller liknande)</h3>
+      <h3>2. MCP-server (mcp.nexflow.se eller liknande)</h3>
       <p>
         Detta är endpoint som Claude och andra AI-modeller pratar med. När
         en användare ställer en fråga som kräver klientdata, anropar AI:n
@@ -76,10 +76,12 @@
         behörighet, hämtar data från rätt källsystem, och returnerar svaret.
       </p>
 
-      <h3>3. Databas (PostgreSQL via Supabase)</h3>
+      <h3>3. Databas (PostgreSQL hos Synotio)</h3>
       <p>
         Här lagras användare, organisationer, anslutningar, API-tokens och
-        audit log. Centralt koncept är Row-Level Security — en databasnivå-
+        audit log. Databasen körs på Synotios egen infrastruktur — vi hostar
+        den själva inom koncernen istället för att förlita oss på en extern
+        leverantör. Centralt koncept är Row-Level Security — en databasnivå-
         säkerhet som garanterar att en användare bara ser data tillhörande
         organisationer hen har behörighet till.
       </p>
@@ -113,6 +115,14 @@
         blir den automatiskt tillgänglig i katalogen för <em>alla</em> våra
         klienter. Varje klient kan sedan skapa sin egen connection genom
         att koppla sitt eget Klaviyo-konto.
+      </p>
+      <p>
+        Eftersom varje connection är en isolerad instans med egna credentials
+        och egen organisation, finns det i praktiken <strong>inga gränser för
+        hur många connections plattformen kan hantera</strong>. Så länge
+        connector-koden är välbyggd och databasen är korrekt indexerad skalar
+        antalet connections linjärt — en klient kan ha hundra connections,
+        eller tusen, utan att arkitekturen ändras.
       </p>
 
       <h2>Tre olika kopplingsmönster</h2>
@@ -281,9 +291,9 @@
       <h3>Krypterad lagring av credentials</h3>
       <p>
         Alla OAuth-tokens och API-nycklar krypteras innan de skrivs till
-        databasen. Krypteringsnyckeln lagras separat (i Supabase Vault
-        initialt, AWS KMS eller liknande senare). Om databasen skulle läcka
-        är credentials oanvändbara utan krypteringsnyckeln.
+        databasen. Krypteringsnyckeln lagras separat i Synotios egen
+        secrets-hantering, isolerad från själva databasen. Om databasen
+        skulle läcka är credentials oanvändbara utan krypteringsnyckeln.
       </p>
 
       <h3>Approval-flow för skrivoperationer</h3>
@@ -332,12 +342,12 @@
       <ul>
         <li><strong>Backend och frontend:</strong> Next.js 14+ (App Router) med TypeScript</li>
         <li><strong>UI-bibliotek:</strong> Tailwind CSS + shadcn/ui</li>
-        <li><strong>Databas:</strong> PostgreSQL via Supabase</li>
-        <li><strong>Autentisering:</strong> Supabase Auth (magic links + Google SSO)</li>
+        <li><strong>Databas:</strong> PostgreSQL self-hosted hos Synotio</li>
+        <li><strong>Autentisering:</strong> Egen auth-lösning på Synotio (magic links + Google SSO)</li>
         <li><strong>MCP-server:</strong> Anthropics officiella MCP TypeScript SDK</li>
         <li><strong>Email:</strong> Resend (transactional)</li>
         <li><strong>Hosting:</strong> Synotio (med utvecklingsmiljö på Vercel eller liknande)</li>
-        <li><strong>Token-kryptering:</strong> Supabase Vault initialt, abstraktion för byte senare</li>
+        <li><strong>Token-kryptering:</strong> Synotios egen secrets-hantering, med abstraktion för byte senare</li>
         <li><strong>Formvalidering:</strong> React Hook Form + Zod</li>
       </ul>
 
@@ -349,10 +359,19 @@
         att gå från 5 klienter till 500.
       </p>
       <p>
+        Eftersom vi hostar hela stacken hos Synotio — databas, MCP-server
+        och webbapplikation — har vi också full kontroll över skalningen.
+        Vi är inte begränsade av en extern leverantörs prisplaner eller
+        kvoter. Om saker är byggda rätt — välindexerad databas, isolerade
+        connections per organisation, korrekt connection pooling — är antalet
+        connections plattformen kan hantera <strong>i praktiken oändligt</strong>.
+      </p>
+      <p>
         Det som behöver justeras vid skalning är primärt infrastrukturen:
-        större databasplan, fler MCP-server-instanser, möjligen dedikerade
-        servrar för enterprise-klienter. Allt detta är välbeprövade
-        infrastrukturmönster.
+        mer CPU/RAM på Synotios servrar, fler MCP-server-instanser, möjligen
+        dedikerade noder för enterprise-klienter. Allt detta är välbeprövade
+        infrastrukturmönster — och eftersom vi äger hela leveranskedjan kan
+        Synotio dimensionera precis efter behov.
       </p>
 
     </div>
