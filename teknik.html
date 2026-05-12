@@ -125,6 +125,16 @@
         kan ha hundra connections, eller tusen, utan att arkitekturen
         ändras.
       </p>
+      <p>
+        Detta löser också en konkret begränsning i de färdiga MCP-connectorer
+        som finns idag. Claudes officiella Shopify-koppling tar in en butik
+        åt gången. Gmail-connectorn hanterar ett konto. GA4 likadant. För en
+        byrå som arbetar med flera klienter samtidigt är det en hård
+        begränsning. I vår modell kan en och samma inloggade användare ha
+        flera Shopify-, Gmail-, GA4- eller Google Ads-connections aktiva
+        parallellt, och Claude kan resonera över dem i samma fråga utan att
+        användaren behöver växla konto.
+      </p>
 
       <h2>Tre olika kopplingsmönster</h2>
       <p>
@@ -258,6 +268,18 @@
               <td>API-nyckel eller OAuth</td>
               <td>Fas 3</td>
               <td>Email marketing, växande behov</td>
+            </tr>
+            <tr>
+              <td>Harvest</td>
+              <td>OAuth / API-nyckel</td>
+              <td>Fas 3</td>
+              <td>Tidrapportering med skrivrättigheter, ersätter manuellt klick-arbete i Harvest UI</td>
+            </tr>
+            <tr>
+              <td>Forecast</td>
+              <td>OAuth / API-nyckel</td>
+              <td>Fas 3</td>
+              <td>Resursplanering med skrivrättigheter, dynamisk rebalansering utifrån faktisk progress</td>
             </tr>
             <tr>
               <td>Fortnox / Visma</td>
