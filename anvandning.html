@@ -160,6 +160,33 @@
         </div>
       </div>
 
+      <h2>Exempel: Fel som plattformen hittar innan klienten gör det</h2>
+      <p>
+        En av de mest underskattade effekterna av plattformen är förmågan
+        att fånga fel som lätt missas av en människa. När Claude
+        kontinuerligt har tillgång till klientens alla system kan den se
+        avvikelser och inkonsistenser som en konsult måste leta efter
+        manuellt, och som ofta upptäcks först när skadan redan är skedd.
+      </p>
+      <p>
+        Konkreta exempel på vad plattformen kan flagga proaktivt:
+      </p>
+      <ul>
+        <li><strong>Trasiga spårningspixlar:</strong> GA4-events slutar trigga efter en sajtuppdatering, Meta-pixeln tappar matchen, Google Ads konverteringar slutar registreras.</li>
+        <li><strong>Inkonsistenta priser:</strong> Shopify-pris skiljer sig från det som syns i Google Shopping-feeden eller på en kampanjsida i WordPress.</li>
+        <li><strong>SEO-regressioner:</strong> meta-taggar försvinner vid en deploy, alt-texter raderas av en plugin-uppdatering, en sida tappar plötsligt sin canonical-tag.</li>
+        <li><strong>404-fel som tappar trafik:</strong> en backlink som tidigare drog in trafik pekar nu på en raderad sida.</li>
+        <li><strong>Annonser som skickar till fel landningssida:</strong> kampanjen är aktiv men sidan den länkar till svarar med fel språk eller är borttagen.</li>
+        <li><strong>Avvikande beteenden:</strong> konverteringsfrekvensen på en sajt halveras över natten utan att någon märker, eller en kampanj börjar spendera dubbelt så mycket utan motsvarande resultat.</li>
+        <li><strong>Säkerhetshål:</strong> WordPress-plugins som inte uppdaterats, exponerade admin-endpoints, läckta API-nycklar i publika filer.</li>
+        <li><strong>Dataskillnader mellan källor:</strong> GA4 säger en sak, Shopify en annan, Google Ads en tredje. Plattformen kan flagga när siffrorna inte stämmer överens och föreslå var felet sannolikt ligger.</li>
+      </ul>
+      <p>
+        För klienten betyder det här en kvalitetskontroll som ingen byrå har
+        tid att göra manuellt. För oss betyder det att vi förebygger problem
+        innan klienten ringer in och frågar varför något inte fungerar.
+      </p>
+
       <h2>Exempel: Designprocess för Bishop Media</h2>
       <p>
         Bishops designers arbetar idag mycket med iteration mellan Figma och
